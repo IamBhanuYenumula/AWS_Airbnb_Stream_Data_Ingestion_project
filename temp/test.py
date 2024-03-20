@@ -1,22 +1,42 @@
-
-# from datetime import datetime, timedelta
-
-# today = datetime.today().date()
-# yesterday = today-timedelta(days=1)
-
-# print(today, yesterday)
-
-# import random
-
-
-# count = random.randint(0,2)
-# print(count)
-
-# import uuid
-
-# user_id = uuid.uuid4()
-
-# print(user_id)
+import json
 import random
-count = random.randint(0,8)
-print("$"+ str(count))
+import uuid
+from datetime import datetime,timedelta
+
+
+def random_date_generator(start_year):
+    
+    start_date = datetime(start_year,1,1).date()
+    end_date = datetime.today().date()
+    calc_days = (end_date - start_date)
+    rand_days = random.randint(0,calc_days.days)
+    random_start_date = start_date + timedelta(days=rand_days)
+    return random_start_date
+
+# Variables assignment
+i = 0
+while i<10:
+
+    city_list = ["Hyderabad","Pune","Indore","Banglour","Mumbai"]
+    country = "India"
+    diff_days = random.randint(0,5)
+    booking_id = uuid.uuid4()
+    user_id = random.randint(10,100)
+    property_id = random.randint(10,100)
+    city = random.choice(city_list)
+    startdate = random_date_generator(2024)
+    enddate = startdate + timedelta(days=diff_days)
+    usd = diff_days*60
+    amount = "$"+ str(usd)
+
+
+    data = {"bookingId": str(booking_id),
+            "userId": user_id,
+            "propertyId": property_id,
+            "location": city +"'" + country,
+            "startDate": startdate.isoformat(),
+            "endDate": enddate.isoformat(),
+            "price": amount
+            }
+    print(data)
+    i += 1
