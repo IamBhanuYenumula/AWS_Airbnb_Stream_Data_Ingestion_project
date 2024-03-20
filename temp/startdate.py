@@ -15,4 +15,4 @@ my_start_date = random_date_generator(2024)
 rand_end_days = random.randint(0,5)
 my_end_date = my_start_date + timedelta(days=rand_end_days)
 
-print(f" start day = {my_start_date} and end day = {my_end_date} and the difference is {rand_end_days}")
+print(my_start_date,rand_end_days)

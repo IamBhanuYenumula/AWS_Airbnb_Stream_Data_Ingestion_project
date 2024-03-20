@@ -15,27 +15,27 @@ def random_date_generator(start_year):
 
 def lambda_handler(event, context):
 
-    # Variables assignment
-    city_list = ["Hyderabad","Pune","Indore","Banglour","Mumbai"]
-    country = "India"
-    diff_days = random.randint(0,5)
-    booking_id = uuid.uuid4()
-    user_id = random.randint(10,100)
-    property_id = random.randint(10,100)
-    city = random.choice(city_list)
-    startdate = random_date_generator(2024)
-    enddate = startdate + timedelta(days=diff_days)
-    usd = diff_days*60
-    amount = "$"+ str(usd)
-
     i = 0
     while i<10:
-        data = {"bookingId": booking_id,
+        # Variables assignment
+        city_list = ["Hyderabad","Pune","Indore","Banglour","Mumbai"]
+        country = "India"
+        diff_days = random.randint(0,5)
+        booking_id = uuid.uuid4()
+        user_id = random.randint(10,100)
+        property_id = random.randint(10,100)
+        city = random.choice(city_list)
+        startdate = random_date_generator(2024)
+        enddate = startdate + timedelta(days=diff_days)
+        usd = diff_days*60
+        amount = "$"+ str(usd)
+
+        data = {"bookingId": str(booking_id),
                 "userId": user_id,
                 "propertyId": property_id,
                 "location": city +"'" + country,
-                "startDate": startdate,
-                "endDate": enddate,
+                "startDate": startdate.isoformat(),
+                "endDate": enddate.isoformat(),
                 "price": amount
                 }
         print(data)
