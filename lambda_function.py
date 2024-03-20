@@ -38,7 +38,7 @@ def lambda_handler(event, context):
                 "endDate": enddate,
                 "price": amount
                 }
-        print data
+        print(data)
         i += 1
 
 

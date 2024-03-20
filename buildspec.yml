@@ -5,6 +5,7 @@ phases:
       python: 3.11
     commands:
       - echo "created python 3.11 runtime...."
+      - pwd
       - pip install -r requirements.txt -t lib
   build:
     commands:
