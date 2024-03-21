@@ -2,7 +2,10 @@ import json
 import random
 import uuid
 from datetime import datetime,timedelta
+import boto3
 
+sqs_client=boto3.client('sqs')
+sqs_url="https://sqs.us-east-1.amazonaws.com/381492279969/AirbndBookingQueue"
 
 def random_date_generator(start_year):
     
@@ -39,8 +42,9 @@ def lambda_handler(event, context):
                 "price": amount
                 }
         print(data)
+        sqs_client.send_message(QueueUrl=sqs_url,
+                                MessageBody=json.dumps(data))
         i += 1
-
 
     return {
         'statusCode': 200,
