@@ -24,6 +24,8 @@ def random_data_generator():
     enddate = startdate + timedelta(days=diff_days)
     usd = diff_days*60
     amount = "$"+ str(usd)
+    total_days = enddate - startdate
+    total_days = total_days.days
 
     data = {"bookingId": str(booking_id),
             "userId": user_id,
@@ -31,7 +33,8 @@ def random_data_generator():
             "location": city +"'" + country,
             "startDate": startdate.isoformat(),
             "endDate": enddate.isoformat(),
-            "price": amount
+            "price": amount,
+            "totalDays":total_days
             }
     return data
 
