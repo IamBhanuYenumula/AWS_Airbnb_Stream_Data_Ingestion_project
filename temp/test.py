@@ -28,6 +28,9 @@ while i<10:
     enddate = startdate + timedelta(days=diff_days)
     usd = diff_days*60
     amount = "$"+ str(usd)
+    total_days = enddate - startdate
+    total_days = total_days.days
+    print(total_days)
 
 
     data = {"bookingId": str(booking_id),
@@ -36,7 +39,8 @@ while i<10:
             "location": city +"'" + country,
             "startDate": startdate.isoformat(),
             "endDate": enddate.isoformat(),
-            "price": amount
+            "price": amount,
+            "totalDays":total_days
             }
     print(data)
     i += 1
