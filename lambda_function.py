@@ -5,7 +5,7 @@ from datetime import datetime,timedelta
 import boto3
 
 sqs_client=boto3.client('sqs')
-sqs_url="https://sqs.us-east-1.amazonaws.com/381492279969/AirbndBookingQueue"
+sqs_url="https://sqs.us-east-2.amazonaws.com/381492279969/AirbnbBookingQueue"
 
 def random_data_generator():  
     start_date = datetime(2024,1,1).date()
