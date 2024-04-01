@@ -20,5 +20,5 @@ phases:
       - echo " Uploading to s3...."
       - aws s3 cp airbnb_deployment_package.zip s3://cicd-east2-packages/
       - echo "Updating Lambda function via s3...."
-      - aws lambda update-function-code --function-name ProducerAirbnbBookingData --s3-bucket cicd-packages --s3-key airbnb_deployment_package.zip
+      - aws lambda update-function-code --function-name ProducerAirbnbBookingData --s3-bucket cicd-east2-packages --s3-key airbnb_deployment_package.zip
       - echo "Deployment complete!..."
