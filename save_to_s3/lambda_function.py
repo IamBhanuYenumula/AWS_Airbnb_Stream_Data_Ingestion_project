@@ -13,7 +13,7 @@ def lambda_handler(event, context):
     
     s3_client = boto3.client('s3')
     s3_resource = boto3.resource('s3')
-    today_date = str(datetime.today())
+    today_date = datetime.today().strftime('%Y-%m-%d')
     uniqueID = str(uuid.uuid4())
     print("Event: ", event)
     message = event[0]['message']
