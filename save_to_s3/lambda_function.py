@@ -14,7 +14,7 @@ def lambda_handler(event, context):
     s3_resource = boto3.resource('s3')
     today_date = str(datetime.today())
     print("Event: ", event)
-    message = event["Records"][0]['body']
+    message = event[0]['message']
     
     if (message == {}):
         return {}
